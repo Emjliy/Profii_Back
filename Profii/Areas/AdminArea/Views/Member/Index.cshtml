@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Member>
+@{
+    ViewData["Title"] = "Index";
+    int count = 1;
+}
+
+<table class="table table-striped table-dark">
+    <thead>
+        <a asp-area="AdminArea" asp-controller="Member" asp-action="Create"><button class="btn btn-success">Create New Member</button></a>
+
+        <tr>
+            <th scope="col">Count</th>
+            <th scope="col">Image</th>
+            <th scope="col">Delete</th>
+            <th scope="col">Update</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var items in Model)
+        {
+        <tr>
+            <th scope="row">@count</th>
+            <td><img src="~/assets/images/@items.Url" alt="Alternate Text" /></td>
+            <td><a asp-area="AdminArea" asp-controller="Member" asp-action="Delete" asp-route-id="@items.ID"><button class="btn btn-danger">Delete</button></a></td>
+            <td><a asp-area="AdminArea" asp-controller="Member" asp-action="Edit" asp-route-id="@items.ID"><button class="btn btn-warning">Update</button></a></td>
+        </tr>
+            count++;
+
+        }
+    </tbody>
+</table>
+

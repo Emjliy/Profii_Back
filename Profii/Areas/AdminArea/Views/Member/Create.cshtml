@@ -1,0 +1,25 @@
+﻿@model Member
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="row">
+    <div class="col-md-6 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Table</h4>
+                <p class="card-description">
+                    Create a Member
+                </p>
+                <form class="forms-sample" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label asp-for="Photo">Select a Photo</label>
+                        <input asp-for="Photo" class="form-control" placeholder="Choose a Photo">
+                        <span class="text-danger" asp-validation-for="Photo"> </span>
+                    </div>
+                    <button type="submit" class="btn btn-primary" mr-2>Create</button>
+                    <a class="btn btn-light" asp-action="Index">Cancel</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
